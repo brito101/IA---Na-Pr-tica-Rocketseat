@@ -132,4 +132,4 @@ crew = Crew(
 )
 
 results = crew.kickoff(inputs={"ticket": "AAPL"})
-print(results["final_output"])
+# print(results["final_output"])
