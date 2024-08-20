@@ -131,5 +131,17 @@ crew = Crew(
     max_iter=15,
 )
 
-results = crew.kickoff(inputs={"ticket": "AAPL"})
-# print(results["final_output"])
+with st.sidebar:
+    st.header("Enter the Stock to Research")
+
+    with st.form(key="research_form"):
+        topic = st.text_input("Select the ticket")
+        submit_button = st.form_submit_button(label="Run Research")
+if submit_button:
+    if not topic:
+        st.error("Please fill the ticket field")
+    else:
+        results = crew.kickoff(inputs={"ticket": topic})
+
+        st.subheader("Results of research:")
+        st.write(results["final_output"])
